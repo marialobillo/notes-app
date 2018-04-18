@@ -3,13 +3,19 @@ import { Form, FormControl, Button } from 'react-bootstrap';
 
 
 class App extends Component{
+	constructor(){
+		super();
+
+		this.state = { text: ''}
+	}
 	render(){
 		return (
 			<div className="container">
 				<h2>Note to Self</h2>
-				<Form>
-					<FormControl />
-					<Button bsStyle="info">Submit</Button>
+				<Form inline={true}>
+					<FormControl onChange={event => this.setState({text: event.target.value})} />
+					{' '}
+					<Button bsStyle="info" onClick={() => console.log(this.state)} >Submit</Button>
 				</Form>
 			</div>
 		);
